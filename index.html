@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENOFIX!</title>
+    <meta name="description" content="RENOFIX! - Professional renovation services for homes and businesses. Get a quote today!">
+    <meta property="og:title" content="RENOFIX! - Professional Renovation Services">
+    <meta property="og:description" content="Transform your space with RENOFIX! Home renovations, remodeling, and more. Contact us for a free quote.">
+    <meta property="og:image" content="backround1.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body {
+            min-height: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        body {
+            background: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: block;
+            min-height: 200vh;
+            height: auto;
+            overflow-y: scroll;
+        }
+        /* Custom transparent grey scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(120,120,120,0.35);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        /* For Firefox */
+        html {
+            scrollbar-color: rgba(120,120,120,0.35) transparent;
+            scrollbar-width: thin;
+        }
+        .background-image {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 120px;
+            width: 80vw;
+            height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 0;
+            background: url('backround1.png') no-repeat center top;
+            background-size: 100% auto;
+            border-radius: 24px;
+            box-shadow: 0 0 64px 16px rgba(30,144,255,0.18), 0 0 32px 0 rgba(0,0,0,0.25);
+            pointer-events: none;
+        }
+        .navbar {
+            background: #1f1f1f;
+            color: #fff;
+            padding: 1em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-brand {
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #ffb347 !important;
+            text-align: center;
+            margin-right: 2em;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(255,179,71,0.15);
+            transition: color 0.2s, text-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .navbar-brand::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #1565c0 60%, #1976d2 100%);
+            border-radius: 2px;
+            margin: 0.3em auto 0 auto;
+            position: absolute;
+            left: 20%;
+            bottom: -8px;
+        }
+        .navbar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2em;
+            align-items: center;
+        }
+        .navbar-links li {
+            display: inline;
+        }
+        .navbar-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.15em;
+            padding: 0.5em 1.3em;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            background: none;
+        }
+        .navbar-links a:hover, .navbar-links a.active {
+            background: #ffb347;
+            color: #222;
+            box-shadow: 0 2px 8px 0 rgba(255,179,71,0.10);
+        }
+        .navbar-cta {
+            background: #ffb347;
+            color: #222;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 0.5em 1.5em;
+            margin-left: 2em;
+            text-decoration: none;
+            box-shadow: 0 2px 8px 0 rgba(21,101,192,0.35), 0 2px 8px 0 rgba(255,179,71,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-cta:hover {
+            background: #fff3e0;
+            color: #1565c0;
+            box-shadow: 0 0 16px 4px rgba(21,101,192,0.45), 0 2px 8px 0 rgba(255,179,71,0.10);
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1em 0.5em;
+            }
+            .navbar-brand {
+                margin-right: 0;
+                margin-bottom: 0.5em;
+            }
+            .navbar-links {
+                gap: 1em;
+            }
+        }
+        /* Footer styles */
+        .footer {
+            background: #181a1b;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2em 1em 1em 1em;
+            margin-top: 4em;
+            border-radius: 18px 18px 0 0;
+            font-size: 1em;
+        }
+        .footer .footer-contact {
+            margin-bottom: 1em;
+        }
+        .footer .footer-contact span {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+        #contactForm, #thankYou {
+            background: rgba(30, 30, 30, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+            padding: 2em 2em 1.5em 2em;
+            margin: 2em auto 0 auto;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        #startBtn {
+            font-size: 0.85em;
+            padding: 0.3em 1.2em;
+            border-radius: 6px;
+            background: #ffb347;
+            color: #222;
+            border: none;
+            font-weight: bold;
+            margin-top: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 2px 8px 0 rgba(255,179,71,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        #startBtn:hover {
+            background: #fff3e0;
+            color: #ff9800;
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <nav class="navbar">
+        <div class="navbar-brand">RENOFIX!</div>
+        <ul class="navbar-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="information.html">Information</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#contactForm" class="navbar-cta">Get a Quote</a></li>
+        </ul>
+    </nav>
+    <form id="contactForm" style="display:none; position:relative; z-index:10; margin-top:7em; background:rgba(30,30,30,0.97); box-shadow:0 8px 32px 0 rgba(21,101,192,0.18), 0 8px 32px 0 rgba(31,38,135,0.10); border-radius:18px; max-width:400px; width:90%; padding:2em 2em 1.5em 2em;">
+        <h2 style="color:#1565c0;">Get a Free Quote</h2>
+        <input type="text" id="name" placeholder="Your Name" required style="width:100%;margin:0.7em 0;padding:0.7em;border-radius:8px;border:none;background:#222;color:#e0e0e0;">
+        <input type="email" id="email" placeholder="Your Email" required style="width:100%;margin:0.7em 0;padding:0.7em;border-radius:8px;border:none;background:#222;color:#e0e0e0;">
+        <input type="tel" id="phone" placeholder="Your Phone (optional)" style="width:100%;margin:0.7em 0;padding:0.7em;border-radius:8px;border:none;background:#222;color:#e0e0e0;">
+        <textarea id="message" placeholder="Describe your project..." required style="width:100%;margin:0.7em 0 1.2em 0;padding:0.7em;border-radius:8px;border:none;background:#222;color:#e0e0e0;min-height:90px;"></textarea>
+        <button type="submit" style="background:#1565c0;color:#fff;font-weight:bold;border:none;border-radius:8px;padding:0.7em 2em;box-shadow:0 0 16px 2px rgba(21,101,192,0.25);cursor:pointer;transition:background 0.2s;">Send</button>
+        <button type="button" id="closeForm" style="background:none;color:#888;border:none;float:right;font-size:1.2em;cursor:pointer;margin-top:-2.2em;margin-right:-1em;">&times;</button>
+    </form>
+    <div id="thankYou" style="display:none; position:relative; z-index:10; margin-top:7em; background:rgba(30,30,30,0.97); box-shadow:0 8px 32px 0 rgba(21,101,192,0.18), 0 8px 32px 0 rgba(31,38,135,0.10); border-radius:18px; max-width:400px; width:90%; padding:2em 2em 1.5em 2em; text-align:center; color:#fff;">
+        <h2 style="color:#1565c0;">Thank you!</h2>
+        <p>Your message has been sent. We will contact you soon.</p>
+        <button type="button" id="closeThankYou" style="background:none;color:#888;border:none;float:right;font-size:1.2em;cursor:pointer;margin-top:-2.2em;margin-right:-1em;">&times;</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+    // Navbar shadow on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    // Show contact form when Get a Quote is pressed
+    document.querySelectorAll('.navbar-cta').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('thankYou').style.display = 'none';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+    });
+    // Hide form
+    document.getElementById('closeForm').onclick = function() {
+        document.getElementById('contactForm').style.display = 'none';
+    };
+    // Hide thank you
+    document.getElementById('closeThankYou').onclick = function() {
+        document.getElementById('thankYou').style.display = 'none';
+    };
+    // Handle form submit
+    document.getElementById('contactForm').onsubmit = function(e) {
+        e.preventDefault();
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('thankYou').style.display = 'block';
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+body {
+    background: url('backround1.png') no-repeat center center fixed;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #181a1b;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+.container {
+    background: rgba(30, 34, 40, 0.75);
+    padding: 0.3rem 2.2rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+    text-align: center;
+    max-width: 380px;
+    width: 96vw;
+    min-height: 90px;
+    backdrop-filter: blur(8px) saturate(120%);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    z-index: 1;
+    animation: fadeIn 1.2s cubic-bezier(.39,.575,.56,1) both;
+    margin: 2.5rem auto 0 auto;
+}
+h1 {
+    margin-bottom: 0.5em;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+p {
+    margin-bottom: 1.5em;
+    font-size: 1.2em;
+}
+button {
+    padding: 0.75em 2em;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #ffb347 0%, #ff9900 100%);
+    color: #222;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    box-shadow: 0 4px 14px 0 rgba(0,0,0,0.15);
+    font-weight: 600;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+button:hover, button:focus {
+    background: linear-gradient(90deg, #ff9900 0%, #ffb347 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px 0 rgba(0,0,0,0.22);
+    transform: translateY(-2px) scale(1.04);
+}
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+form, #thankYou {
+    display: none;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    text-align: center;
+    color: #fff;
+    margin-top: 1em;
+}
+input, textarea {
+    padding: 0.5em;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 1em;
+    width: 80%;
+}
+textarea {
+    height: 80px;
+}
+.navbar {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 2em;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0a174e;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #ffb347;
+}
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+}
+.navbar-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+.navbar-links li a:hover {
+    color: #ffb347;
+}
+.info-highlights .highlight-card,
+.info-testimonials .testimonial-card {
+    background: rgba(30, 34, 40, 0.88);
+    color: #fff;
+}
+.info-timeline h2,
+.info-testimonials h2,
+.info-tagline,
+.highlight-card h3,
+.testimonial-card span {
+    color: #ffb347;
+}

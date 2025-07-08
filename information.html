@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENOFIX! - Information</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            /* Professional dark theme for information page */
+            background: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: #1f1f1f;
+            color: #fff;
+            padding: 1em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-brand {
+            font-size: 1.7em;
+            font-weight: bold;
+            color: #ffb347 !important;
+            text-align: center;
+            margin-right: 2em;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(255,179,71,0.15);
+            transition: color 0.2s, text-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .navbar-brand::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #1565c0 60%, #1976d2 100%);
+            border-radius: 2px;
+            margin: 0.3em auto 0 auto;
+            position: absolute;
+            left: 20%;
+            bottom: -8px;
+        }
+        .navbar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2em;
+            align-items: center;
+        }
+        .navbar-links li {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.15em;
+            padding: 0.5em 1.3em;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-links a:hover, .navbar-links a.active {
+            background: #ffb347;
+            color: #222;
+            box-shadow: 0 2px 8px 0 rgba(255,179,71,0.10);
+        }
+        .navbar-cta {
+            background: #ffb347;
+            color: #222;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 0.5em 1.5em;
+            margin-left: 2em;
+            text-decoration: none;
+            box-shadow: 0 2px 8px 0 rgba(21,101,192,0.35), 0 2px 8px 0 rgba(255,179,71,0.10);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-cta:hover {
+            background: #fff3e0;
+            color: #1565c0;
+            box-shadow: 0 0 16px 4px rgba(21,101,192,0.45), 0 2px 8px 0 rgba(255,179,71,0.10);
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1em 0.5em;
+            }
+            .navbar-brand {
+                margin-right: 0;
+                margin-bottom: 0.5em;
+            }
+            .navbar-links {
+                gap: 1em;
+            }
+        }
+        .info-hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 4em 2em;
+            text-align: center;
+            width: 100%;
+            margin-top: 60px;
+        }
+        .info-tagline {
+            font-size: 1.5em;
+            margin-top: 0.5em;
+        }
+        .info-cta-bar {
+            margin-top: 1.5em;
+        }
+        .cta-btn {
+            background: #ffb347;
+            color: #121212;
+            padding: 0.75em 2em;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 1em;
+            display: inline-block;
+        }
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid #ffb347;
+            color: #ffb347;
+        }
+        .info-highlights {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 2em;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .highlight-card {
+            background: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 1em;
+            padding: 2em;
+            text-align: center;
+            flex: 1 1 200px;
+        }
+        .highlight-icon {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        .info-timeline {
+            background: #1e1e1e;
+            padding: 2em;
+            margin: 2em 0;
+            width: 100%;
+            max-width: 800px;
+            margin: 2em auto;
+        }
+        .timeline-list {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #ffb347;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5em;
+        }
+        .info-gallery {
+            padding: 2em;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 2em auto;
+        }
+        .gallery-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .gallery-img {
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            width: 30%;
+            margin: 1em 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .info-testimonials {
+            background: #121212;
+            padding: 2em;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 2em auto;
+        }
+        .testimonial-card {
+            background: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 1em auto;
+            padding: 2em;
+            max-width: 600px;
+        }
+        .footer {
+            background: #1f1f1f;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+        .footer-socials {
+            margin-top: 0.5em;
+        }
+        .footer-icon {
+            color: #ffb347;
+            margin: 0 0.5em;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">RENOFIX!</div>
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="information.html" class="active">Information</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#contactForm" class="navbar-cta">Get a Quote</a></li>
+        </ul>
+    </nav>
+    <section class="info-hero">
+        <h1>About RENOFIX!</h1>
+        <p class="info-tagline">Your trusted partner for modern, stress-free renovations.</p>
+        <div class="info-cta-bar">
+            <a href="services.html" class="cta-btn">See Our Services</a>
+            <a href="#testimonials" class="cta-btn cta-secondary">Client Reviews</a>
+        </div>
+    </section>
+    <section class="info-highlights">
+        <div class="highlight-card">
+            <div class="highlight-icon">🏆</div>
+            <h3>Expert Team</h3>
+            <p>Our professionals bring years of experience to every project.</p>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-icon">⏱️</div>
+            <h3>On-Time Delivery</h3>
+            <p>We value your time and always deliver on schedule.</p>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-icon">💡</div>
+            <h3>Innovative Solutions</h3>
+            <p>We use the latest techniques and materials for stunning results.</p>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-icon">🤝</div>
+            <h3>Customer Focused</h3>
+            <p>Your satisfaction is our top priority, every step of the way.</p>
+        </div>
+    </section>
+    <section class="info-timeline">
+        <h2>Why Choose RENOFIX?</h2>
+        <ul class="timeline-list">
+            <li><span class="timeline-dot"></span> Free, no-obligation quotes</li>
+            <li><span class="timeline-dot"></span> Transparent pricing</li>
+            <li><span class="timeline-dot"></span> Dedicated project manager</li>
+            <li><span class="timeline-dot"></span> Quality guarantee on all work</li>
+            <li><span class="timeline-dot"></span> Aftercare and support</li>
+        </ul>
+    </section>
+    <section class="info-gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-row">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80');"></div>
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80');"></div>
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80');"></div>
+        </div>
+    </section>
+    <section class="info-testimonials" id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-card">
+            <p>“RENOFIX! made our renovation easy and stress-free. The team was professional and the results were amazing!”</p>
+            <span>- Alex P.</span>
+        </div>
+        <div class="testimonial-card">
+            <p>“On time, on budget, and beyond expectations. Highly recommend RENOFIX!”</p>
+            <span>- Jamie L.</span>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2025 RENOFIX! All rights reserved.</span>
+            <span class="footer-socials">
+                <a href="#" title="Facebook" class="footer-icon">&#x1F426;</a>
+                <a href="#" title="Twitter" class="footer-icon">&#x1F426;</a>
+                <a href="#" title="Email" class="footer-icon">&#x2709;&#xFE0F;</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
